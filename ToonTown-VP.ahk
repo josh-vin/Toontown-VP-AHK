@@ -1,21 +1,36 @@
 #SingleInstance
-^j::
-   MsgBox, Its still working
+username = username
+password = password
+<!j::
+   MsgBox, Its working
 Return
 ^+r::Reload
+<!k::Suspend, Toggle
+<!esc::exitapp
 
-^esc::exitapp
 #IfWinActive Toontown Rewritten
-; #IfWinActive ahk_exe TTREngine.exe
-^j::
+; #IfWinActive ahk_exe TTREngine.exe Toontown Rewritten Launcher
+<!j::
    MsgBox, Its still working in Toontown
 Return
 
+$'::
+    Send, {' down}
+    Send, {' up} 
+Return
 
-^k::Suspend, Toggle
-
-Delete::
+$Delete::
     Send, {Delete down}
-    Sleep, 10
     Send, {Delete up} 
+Return
+
+#IfWinActive ahk_exe Launcher.exe
+<!j::
+   MsgBox, Its still working in Toontown Launcher
+Return
+<!l::
+   Send, %username%{Tab}%password%{Enter}
+Return
++l::
+   Send, %password%{Enter}
 Return
