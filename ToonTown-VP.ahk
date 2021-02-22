@@ -14,6 +14,8 @@ RedX = 995
 TealX = 1495
 ; Orange - 1135, 645
 OrangeX = 1135
+; Violet
+VioletX = 1210
 
 
 ;;; OTHERS ;;;
@@ -23,14 +25,16 @@ PlantFlowerY = 345
 ; Plant - 1485, 950
 PlantX = 1485
 PlantY = 950
-PlantingSleep = 7000
+PlantingSleep = 6250
 ; Ok Button - 1280, 875
 OkX = 1280
 OkY = 880
 ; Water - 90, 475
 WaterX = 90
 WaterY = 475
-WaterSleep = 50
+WaterSleep = 250
+
+ClickSleep = 50
 
 <!j::
    MsgBox, Its working
@@ -55,20 +59,22 @@ $Delete::
     Send, {Delete up} 
 Return
 
-
- 
-
 1:: ; Test
-   MouseMove, %PlantFlowerX%, %PlantFlowerY%, Client   
+   MouseClick, left, %PlantFlowerX%, %PlantFlowerY%, Client   
 Return
 
 
 4:: ; 4 jelly bean garden
    MouseClick, left, %PlantFlowerX%, %PlantFlowerY%, Client    ; PLANT FLOWER
+   Sleep, %ClickSleep%
    MouseClick, left, %YellowX%, %BeanY%, Client                ; Yellow Bean
+   Sleep, %ClickSleep%
    MouseClick, left, %RedX%, %BeanY%, Client                   ; Red Bean
+   Sleep, %ClickSleep%
    MouseClick, left, %TealX%, %BeanY%, Client                  ; Teal Bean
+   Sleep, %ClickSleep%
    MouseClick, left, %OrangeX%, %BeanY%, Client                ; Orange Bean
+   Sleep, %ClickSleep%
    MouseClick, left, %PlantX%, %PlantY%, Client                ; Plant Bean
    Sleep, %PlantingSleep%                                      ; Wait for shovling 
    MouseClick, left, %OkX%, %OkY%, Client                      ; Click ok button
@@ -78,11 +84,39 @@ Return
 
 5:: ; 5 jelly bean garden
    MouseClick, left, %PlantFlowerX%, %PlantFlowerY%, Client    ; PLANT FLOWER
+   Sleep, %ClickSleep%
    MouseClick, left, %TealX%, %BeanY%, Client                  ; Teal Bean
+   Sleep, %ClickSleep%
    MouseClick, left, %RedX%, %BeanY%, Client                   ; Red Bean
+   Sleep, %ClickSleep%
    MouseClick, left                                            ; Red Bean
+   Sleep, %ClickSleep%
    MouseClick, left                                            ; Red Bean
+   Sleep, %ClickSleep%
    MouseClick, left                                            ; Red Bean
+   Sleep, %ClickSleep%
+   MouseClick, left, %PlantX%, %PlantY%, Client                ; Plant Bean
+   Sleep, %PlantingSleep%                                      ; Wait for shovling 
+   MouseClick, left, %OkX%, %OkY%, Client                      ; Click ok button
+   Sleep %WaterSleep%                                          ; Wait just a half a second
+   MouseClick, left, %WaterX%, %WaterY%, Client                ; Click Water
+Return
+
+6:: ; 6 jelly bean garden
+   MouseClick, left, %PlantFlowerX%, %PlantFlowerY%, Client    ; PLANT FLOWER
+   Sleep, %ClickSleep%
+   MouseClick, left, %TealX%, %BeanY%, Client                  ; Teal Bean
+   Sleep, %ClickSleep%
+   MouseClick, left, %RedX%, %BeanY%, Client                   ; Red Bean
+   Sleep, %ClickSleep%
+   MouseClick, left, %VioletX%, %BeanY%, Client                ; Violet Bean
+   Sleep, %ClickSleep%
+   MouseClick, left                                            ; Violet Bean
+   Sleep, %ClickSleep%
+   MouseClick, left                                            ; Violet Bean
+   Sleep, %ClickSleep%
+   MouseClick, left                                            ; Violet Bean
+   Sleep, %ClickSleep%
    MouseClick, left, %PlantX%, %PlantY%, Client                ; Plant Bean
    Sleep, %PlantingSleep%                                      ; Wait for shovling 
    MouseClick, left, %OkX%, %OkY%, Client                      ; Click ok button
